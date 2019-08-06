@@ -1,0 +1,13 @@
+# Apache2 docker image based on ubuntu 18.04
+We have kept the ubuntu:18.04 image as our base image. On top of this image we have updated ubuntu packages and then installed apache2 package. After this we have used the `CMD` instruction to designate `apachectl -D FOREGROUND` as the command which will be executed when the container starts. This is because if we keep `service apache2 start` as our startup command, then it'll start the httpd server but as a daemon which gets detached from the shell and runs in background. So, as it gets detached the container terminates as the main process of the container gets terminated. So, we infer from this that bash is the main process of our container. **But how do we decide the main process of a container?** I guess the main process `/bin/sh -c` got inherited from the ubuntu base image. So, by using `apachectl -D FOREGROUND`, we run httpd service in foreground due to which the main process \(bash\) of our container remains live till the httpd service is not terminated. In this way we can now execute `curl` on our localhost to test if index.html is being served or not.
+
+Also we didn't expose any port in our Dockerfile. If we have specified `EXPOSE 7070`, then our httpd service would have got configured to listen on port 7070 of the container. We would have mapped a localhost port to port 7070 of our container and looked for the index.html webpage. But **I guess**, by default port 80 gets published for httpd. So, while running I mapped port 3000 of localhost to port 80 of our container and later queried the index.html page. Below are the two commands used.
+```
+docker run -d -p 3000:80 inderpal2406:apache2:0.0.1
+curl localhost:3000
+```
+
+And we got a reply!
+
+To verify the default port for httpd, I started another container with same image with a mapping of 3000:3000. So, I am trying to query port 3000 of the container. I got an empty reply from the server. I tried to map port 2999 of localhost with port 443 of a new container using the same image, but got an empty reply. Then I tried to map 2998 with random port on container and got an empty reply again. So, it has been verified that **port 80 gets published by default in httpd service container!**.
+
