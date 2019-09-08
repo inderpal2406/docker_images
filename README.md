@@ -27,3 +27,13 @@ Follow below steps to install docker on Ubuntu 18.04.1 \(bionic\) x86_64 process
    This had shown us that we are using version 19.03.2 of docker-ce.
 7. Add user to `docker` group to avoid typing `sudo` everytime we run `docker` command <br>
    `sudo usermod -G docker username`
+
+## Docker installation script
+An alternate way to install docker is to use a remote installation script. To use this script, weneed to `curl` it from a `get.docker.com` website. Execute below command,
+
+`curl https://get.docker.com/ | sudo sh`
+
+This scriptwill check our kernel version, processor and if kernel supports appropriate storage drivers. It'll then automatically install all dependencies required for docker. It'll proceed to install and start docker daemon. [The script can be found here.](./get-docker.sh) This has been stored for reference purpose, but it is recommended to curl and get the latest version of script before installaion of docker.
+
+## Configuring docker daemon
+The docker daemon "dockerd" can be configured further to customize it according to our needs. This can be referred to page number 38 in `The Docker Book` by James Turnbull.
