@@ -33,7 +33,11 @@ An alternate way to install docker is to use a remote installation script. To us
 
 `curl https://get.docker.com/ | sudo sh`
 
-This scriptwill check our kernel version, processor and if kernel supports appropriate storage drivers. It'll then automatically install all dependencies required for docker. It'll proceed to install and start docker daemon. [The script can be found here.](./get-docker.sh) This has been stored for reference purpose, but it is recommended to curl and get the latest version of script before installaion of docker.
+This scriptwill check our kernel version, processor and if kernel supports appropriate storage drivers. It'll then automatically install all dependencies required for docker. It'll proceed to install and start docker daemon. [The script can be found here.](./get-docker.sh) This has been stored for reference purpose, but it is recommended to curl and get the latest version of script before installaion of docker. We should note that if we install docker using remote installation script, then this script doesn't enable docker daemon to start on reboot of docker host or docker service crash. So, after installation, we need to run following command,
+
+`sudo systemctl enable docker`
+
+This will enable docker service to start automatically on every reboot of docker host or when the service crashes unexpectedly.
 
 ## Configuring docker daemon
 The docker daemon "dockerd" can be configured further to customize it according to our needs. This can be referred to page number 38 in `The Docker Book` by James Turnbull.
