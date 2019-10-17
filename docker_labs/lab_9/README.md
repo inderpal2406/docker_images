@@ -1,5 +1,5 @@
-## Lab 8
-To demonstrate use of `WORKDIR` instruction with absolute path.
+## Lab 9
+To demonstrate use of `WORKDIR` instruction with relative path.
 
 * The `WORKDIR` directive in Dockerfile defines the working directory for the rest of the instructions in the Dockerfile.
 * We can have multiple `WORKDIR` in same Dockerfile.
@@ -9,6 +9,6 @@ To demonstrate use of `WORKDIR` instruction with absolute path.
 
 ## Commands
 ```
-docker build -t inderpal2406/alpine-workdir:v0.0.1 .
-docker run inderpal2406/alpine-workdir:v0.0.1
+docker build -t inderpal2406/alpine-workdir:v0.0.2 .
+docker run inderpal2406/alpine-workdir:v0.0.2
 ```
