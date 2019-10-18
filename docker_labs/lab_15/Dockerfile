@@ -1,0 +1,3 @@
+FROM nginx:alpine
+VOLUME /myvol
+CMD [ "nginx", "-g", "daemon off;" ]
