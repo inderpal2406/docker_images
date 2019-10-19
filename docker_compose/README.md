@@ -1,9 +1,10 @@
+#### Table of Content
+[Docker Compose](# Docker Compose)
+
 # Docker Compose
 * These labs are being practised from Docker Workshop for intermediate users on collabnix.com.
 * Here is the [online link](http://dockerlabs.collabnix.com/intermediate/workshop/)
 * These labs are mainly focused on `docker compose`.
-
-[TOC]
 
 ## Introduction to `docker compose`
 * Docker compose is a tool built by docker to ease the task to `creating and configring multiple containers`.
