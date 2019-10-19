@@ -14,6 +14,8 @@
     * [`docker-compose` cheatsheet](###`docker-compose`-cheatsheet)
   * [Difference between `Dockerfile` and `docker-compose.yml` files](##Difference-between-`Dockerfile`-and-`docker-compose.yml`-files)
   * [How to install Docker Compose?](##How-to-install-Docker-Compose?)
+  
+Alternate link to learn about docker compose: https://takacsmark.com/docker-compose-tutorial-beginners-by-example-basics/
 
 <a name="Docker-Compose"></a>
 # Docker Compose
