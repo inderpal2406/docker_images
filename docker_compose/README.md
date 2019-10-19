@@ -13,6 +13,7 @@
     * [Stop](###Stop)
     * [`docker-compose` cheatsheet](###`docker-compose`-cheatsheet)
   * [Difference between `Dockerfile` and `docker-compose.yml` files](##Difference-between-`Dockerfile`-and-`docker-compose.yml`-files)
+  * [How to install Docker Compose?](##How-to-install-Docker-Compose?)
 
 <a name="Docker-Compose"></a>
 # Docker Compose
@@ -213,3 +214,52 @@ docker-compose stop web     # Stop containers only for service web.
 [Cheatsheet](https://github.com/collabnix/dockerlabs/blob/master/intermediate/docker-compose/compose-cheatsheet.md)
 
 ## Difference between `Dockerfile` and `docker-compose.yml` files
+* A `Dockerfile` is a text document that contains all the commands/Instructions a user could call to build an image.
+* For example,
+```
+FROM centos:latest
+LABEL MAINTAINER="Inderpal Singh" NAME="CentOS-Apache"
+RUN \
+  yum update -y && \
+  yum install -y httpd net-tools && \
+  mkdir /run/httpd
+EXPOSE 80
+ENTRYPOINT [ "apachectl", "-D FOREGROUND" ]
+```
+* Using `docker build` command we can build docker image from above `Dockerfile` example.
+* `Docker compose` is a tool used to create, configure, manage single/multiple containers from images built using `Dockerfile`.
+* `Docker compose` can also be used to build images, but it'll also search for `Dockerfile` to build the image.
+* So, we can say that it is the `Dockerfile` which defines our image while it is the `docker-compose.yml` file which defines environment of our containers.
+* With `Docker compose` tool, with the help of a sigle command, we can create, configure and manage all of our services using `docker-compose.yml` configuration file.
+* By default, docker-compose expects the name of the Compose file as `docker-compose.yml` or `docker-compose.yaml`. If the compose file has different name, we can specify it with `-f` flag.
+* Example of a `docker-compose.yml` file.
+```
+version: '3'
+
+services:
+  web:
+    build: .
+    image: inderpal2406/web:v0.0.5
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/code
+      - logvolume01:/var/log
+    links:
+      - redis
+  redis:
+    image: redis
+    volumes:
+      - logvolume01: {}
+```
+
+## How to install Docker Compose on Linux?
+It is a three step procedure,
+1. Download `docker-compose` binary from GitHub. <br>
+```
+sudo curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+```
+2. Give executable permission to the downloaded binary. <br>
+`sudo chmod +x /usr/local/bin/docker-compose`
+3. Test the installation. <br>
+`docker-compose --version`
