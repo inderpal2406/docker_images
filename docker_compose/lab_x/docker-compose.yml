@@ -13,7 +13,7 @@ services:
     volumes:
       - "/app"          # Anonymous volume
       - "data:/data"    # Named volume
-      - "mydata:/data"  # External volume
+      - "mydata:/mydata"  # External volume
 
 volumes:
   data:

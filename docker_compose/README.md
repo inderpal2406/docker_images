@@ -228,7 +228,7 @@ ENTRYPOINT [ "apachectl", "-D FOREGROUND" ]
 ```
 * Using `docker build` command we can build docker image from above `Dockerfile` example.
 * `Docker compose` is a tool used to create, configure, manage single/multiple containers from images built using `Dockerfile`.
-* `Docker compose` can also be used to build images, but it'll also search for `Dockerfile` to build the image.
+* `Docker compose` can also be used to build images, but it'll also search for `Dockerfile` to build the image. Or else the image has to be pre-built and present either on local host or Docker registry. The latter is the case when we don't have `build` specification in our `docker-compose.yml` file and directly mention the image for the container.
 * So, we can say that it is the `Dockerfile` which defines our image while it is the `docker-compose.yml` file which defines environment of our containers.
 * With `Docker compose` tool, with the help of a sigle command, we can create, configure and manage all of our services using `docker-compose.yml` configuration file.
 * By default, docker-compose expects the name of the Compose file as `docker-compose.yml` or `docker-compose.yaml`. If the compose file has different name, we can specify it with `-f` flag.
