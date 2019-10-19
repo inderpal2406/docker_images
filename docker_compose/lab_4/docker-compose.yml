@@ -1,0 +1,12 @@
+version: '3.1'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: inderpal2406/nginx-alpine:v0.0.4
+    container_name: "web"
+    ports:
+      - "80:80"
+      - "443:443"
