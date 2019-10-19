@@ -14,11 +14,13 @@
     * [`docker-compose` cheatsheet](###`docker-compose`-cheatsheet)
   * [Difference between `Dockerfile` and `docker-compose.yml` files](##Difference-between-`Dockerfile`-and-`docker-compose.yml`-files)
 
+<a name="Docker-Compose"></a>
 # Docker Compose
 * These labs are being practised from Docker Workshop for intermediate users on collabnix.com.
 * Here is the [online link](http://dockerlabs.collabnix.com/intermediate/workshop/)
 * These labs are mainly focused on `docker compose`.
 
+<a name="Introduction-to-`docker-compose`"></a>
 ## Introduction to `docker compose`
 * Docker compose is a tool built by docker to ease the task to `creating and configring multiple containers`.
 * Docker compose is mainly used in development environments or we can say at small scale.
@@ -34,6 +36,7 @@
   * `Service`: Several container instances running the same image are termed as one service.
   * `Project`: A complete business unit consisting of a set of associated application containers, defined in the docker-compose.yml file.
 
+<a name="An-example-of-`docker-compose.yml`-file"></a>
 ## An example of `docker-compose.yml` file
 ```
 version: '3'
