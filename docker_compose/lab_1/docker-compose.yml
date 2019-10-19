@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    image: web-client
+    depends_on:
+      - server
+    ports:
+      - "8080:8080"
+  server:
+    image: akshitgrover/helloworld
+    volumes:
+      - "/app"          # Anonymous volume
+      - "data:/data"    # Named volume
+      - "mydata:/data"  # External volume
+
+volumes:
+  data:
+  mydata:
+    external: true
