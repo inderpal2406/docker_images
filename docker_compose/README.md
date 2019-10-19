@@ -1,5 +1,18 @@
 #### Table of Content
-[Docker Compose](# Docker Compose)
+* [Docker Compose](#Docker-Compose)
+  * [Introduction to `docker compose`](##Introduction-to-`docker-compose`)
+  * [An example of `docker-compose.yml` file](##An-example-of-`docker-compose.yml`-file)
+  * [CLI Cheatsheet](##CLI-Cheatsheet)
+    * [Build](###Build)
+    * [Bundle](###Bundle)
+    * [Config](###Config)
+    * [Up](###Up)
+    * [Down](###Down)
+    * [Scale](###Scale)
+    * [Start](###Start)
+    * [Stop](###Stop)
+    * [`docker-compose` cheatsheet](###`docker-compose`-cheatsheet)
+  * [Difference between `Dockerfile` and `docker-compose.yml` files](##Difference-between-`Dockerfile`-and-`docker-compose.yml`-files)
 
 # Docker Compose
 * These labs are being practised from Docker Workshop for intermediate users on collabnix.com.
@@ -195,3 +208,5 @@ docker-compose stop web     # Stop containers only for service web.
 
 ### `docker-compose` cheatsheet
 [Cheatsheet](https://github.com/collabnix/dockerlabs/blob/master/intermediate/docker-compose/compose-cheatsheet.md)
+
+## Difference between `Dockerfile` and `docker-compose.yml` files
