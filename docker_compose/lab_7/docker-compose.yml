@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+  webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: inderpal2406/nginx-alpine:v0.0.2
+    container_name: Nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+  dbserver:
+    image: mysql:5.7
+    container_name: Mysqldb
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: Pa$$word
+      MYSQL_USER: test
+      MYSQL_PASSWORD: Pa$$word123
+      MYSQL_DB: test
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
