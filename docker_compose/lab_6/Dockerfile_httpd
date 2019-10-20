@@ -1,0 +1,9 @@
+# Version v0.0.1
+FROM httpd:alpine
+LABEL MAINTAINER="inderpal2406" NAME="httpd-alpine"
+ENV REFRESHED_AT 20/10/2019-10:00
+RUN echo "Hello from httpd!" > /usr/local/apache2/htdocs/index.html
+EXPOSE 80/tcp
+EXPOSE 443/tcp
+CMD [ "-D", "FOREGROUND" ]
+ENTRYPOINT [ "/usr/sbin/httpd" ]

@@ -1,0 +1,8 @@
+# Version v0.0.1
+FROM alpine:latest
+LABEL MAINTAINER="inderpal2406" NAME="git-alpine"
+ENV REFRESHED_AT 20/10/2019-10:00
+RUN \
+  apk update && \
+  apk add git
+CMD [ "/bin/sh" ]

@@ -1,0 +1,27 @@
+version: '3.1'
+
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile_nginx
+    image: inderpal2406/nginx-alpine:v0.0.1
+    container_name: nginx
+    ports:
+      - "80:80"
+      - "443:443"
+  httpd:
+    build:
+      context: .
+      dockerfile: Dockerfile_httpd
+    image: inderpal2406/httpd-alpine:v0.0.1
+    container_name: httpd
+    ports:
+      - "80:80"
+      - "443:443"
+  git:
+    build:
+      context: .
+      dockerfile: Dockerfile_git
+    image: inderpal2406/alpine-git:v0.0.1
+    container_name: git 
