@@ -1,0 +1,10 @@
+version: "3.7"
+
+services:
+  webserver:
+    image: inderpal2406/nginx-alpine:v0.0.2
+    container_name: nginx
+    instances: 2
+    restart: unless-stopped
+    ports:
+      - "80:80"
