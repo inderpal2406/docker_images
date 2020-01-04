@@ -1,0 +1,3 @@
+FROM inderpal2406/maintainer:v1
+
+ENV NEW_REFRESHED_AT 31-12-2019_21:40_IST

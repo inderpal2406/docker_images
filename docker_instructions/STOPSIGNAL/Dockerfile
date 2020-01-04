@@ -1,0 +1,5 @@
+FROM alpine:latest
+
+ENV REFRESHED_AT 12-12-1230
+
+STOPSIGNAL 15
