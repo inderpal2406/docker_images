@@ -1,0 +1,4 @@
+FROM ubuntu:latest
+RUN apt-get update && \
+    apt-get install -y ruby rake && \
+    gem install --no-rdoc --no-ri rspec ci_reporter_rspec

@@ -1,0 +1,19 @@
+FROM jenkins/jenkins
+
+MAINTAINER Inderpal Singh <inderpal2406@gmail.com>
+
+ENV REFRESHED_AT 06-01-2020_06:30_UTC
+
+USER root
+
+RUN apt-get update && \
+    apt-get install -y sudo && \
+    echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers && \
+    wget http://get.docker.com/builds/Linux/x86_64/docker-latest.tgz && \
+    tar -xvf docker-latest.tgz && \
+    mv docker/* /usr/bin/ && \
+    rm -rf docker
+
+USER jenkins
+
+RUN /usr/local/bin/install-plugins.sh junit greenballs chucknorris git git-client ssh-slaves ws-cleanup
