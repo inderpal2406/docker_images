@@ -5,10 +5,10 @@ MAINTAINER Inderpal Singh <inderpal2406@gmail.com>
 ENV REFRESHED_AT 07-01-2020_11:00_UTC
 
 RUN yum update -y && \
-    yum install -y openssh-server initscripts ansible sudo && \
+    yum install -y openssh-server openssh-clients initscripts ansible sudo && \
     /usr/sbin/sshd-keygen && \
     useradd -d /home/ansible -s /bin/bash -c "Ansible user" ansible && \
-    mkdir -p /home/ansible/.ssh && \
+    mkdir -p /home/ansible/.ssh /home/ansible/playbooks && \
     echo "ansible ALL=NOPASSWD: ALL" >> /etc/sudoers
 
 ADD ansible_keys.tar /home/ansible/.ssh/
