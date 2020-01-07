@@ -261,6 +261,7 @@ It is a three step procedure,
 ```
 sudo curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 ```
+Before downloading the docker-compose binary, we need to check the latest available version of docker-compose on GitHub, then substitute that version at place of 1.24.1 in above command.
 2. Give executable permission to the downloaded binary. <br>
 `sudo chmod +x /usr/local/bin/docker-compose`
 3. Test the installation. <br>
