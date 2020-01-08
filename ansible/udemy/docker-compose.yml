@@ -1,25 +1,45 @@
 version: '3'
 
 services: 
+
   ansible_master: 
     container_name: ansible_master
     image: inderpal2406/ansible_master:v1
+    build:
+      context: ansible_master
     volumes:
-      - "/home/inderpal2406/github/ansible_playbooks:/home/ansible/playbooks"
+      - "$HOME/github/ansible_playbooks:/home/ansible/playbooks"
     networks: 
       - ansible_net
+
   ansible_slave:
     container_name: ansible_slave
     image: inderpal2406/ansible_slave:v1
+    build:
+      context: ansible_slave
     networks: 
       - ansible_net
+
   ansible_loadbalancer:
     container_name: ansible_loadbalancer
     image: inderpal2406/ansible_slave:v1
     networks: 
       - ansible_net
+
   ansible_database:
     container_name: ansible_database
+    image: inderpal2406/ansible_slave:v1
+    networks:
+      - ansible_net
+
+  ansible_webserver01:
+    container_name: ansible_webserver01
+    image: inderpal2406/ansible_slave:v1
+    networks:
+      - ansible_net
+
+  ansible_webserver02:
+    container_name: ansible_webserver02
     image: inderpal2406/ansible_slave:v1
     networks:
       - ansible_net
