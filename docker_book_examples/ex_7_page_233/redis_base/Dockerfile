@@ -1,0 +1,14 @@
+FROM ubuntu:latest
+
+MAINTAINER Inderpal Singh <inderpal2406@gmail.com>
+
+ENV REFRESHED_AT=12-01-2020_14:30_UTC
+
+RUN apt-get update -y && \
+    apt-get install -y redis-server redis-tools
+
+VOLUME [ "/var/lib/redis", "/var/log/redis" ]
+
+EXPOSE 6379
+
+CMD []
