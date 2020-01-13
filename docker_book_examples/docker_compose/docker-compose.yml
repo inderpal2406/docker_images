@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web:
+    container_name: web
+    image: inderpal2406/docker_compose_composeapp:v1
+    build:
+      context: composeapp/
+    command: python app.py
+    ports:
+      - "80:5000"
+    volumes:
+      - ./composeapp:/composeapp
+    links:
+      - redis
+  redis:
+    container_name: redis
+    image: inderpal2406/docker_compose_redis:v1
+    build:
+      context: redis/
